@@ -1,0 +1,14 @@
+html, body {
+    height: 100%;
+}
+
+.form-container {
+    max-width: 350px;
+    padding: 1rem;
+}
+
+.no-select{
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
