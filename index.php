@@ -40,35 +40,31 @@
             </label>
         </div>
 
-        <?php
-        if (isset($_GET['login']) && ($_GET['login']) == 'erro') {
-            ?>
-            <div style="text-align: center;" class="alert alert-danger mb-3">Usuário ou senhas inválidos</div>
-            <?php
-        }
-        ?>
-
-        <?php
-        if (isset($_GET['login']) && ($_GET['login']) == 'success') {
-            ?>
-            <div style="text-align: center;" class="alert alert-success mb-3">Sucesso!</div>
-            <?php
-        }
-        ?>
-
-        <?php
-        if (isset($_GET['login']) && ($_GET['login']) == 'erro2') {
-            ?>
-            <div style="text-align: center;" class="alert alert-danger mb-3">Faça login para acessar</div>
-            <?php
-        }
-        ?>
-
         <button class="btn btn-primary w-100 py-2" type="submit">Entrar</button>
         <p class="mt-5 mb-3 text-body-secondary no-select">© Emanuel Evangelista - 2023</p>
     </form>
 
 </main>
+
+<?php
+if (isset($_GET['login']) && ($_GET['login']) == 'erro') {
+    ?>
+    <div style="text-align: center; position: fixed; top: 1rem; right: 1rem;" class="alert alert-danger mb-3">
+        Usuário ou senhas inválidos
+    </div>
+    <?php
+}
+?>
+
+<?php
+if (isset($_GET['login']) && ($_GET['login']) == 'erro2') {
+    ?>
+    <div style="text-align: center; position: fixed; top: 1rem; right: 1rem;" class="alert alert-danger mb-3">
+        Faça login para acessar
+    </div>
+    <?php
+}
+?>
 
 </body>
 </html>

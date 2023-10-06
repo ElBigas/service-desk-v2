@@ -29,7 +29,7 @@ if ($qtd > 0) {
     $_SESSION["email"] = $email;
     $_SESSION["nome"] = $row->nome;
     $_SESSION['autenticado'] = 'YES';
-    header('Location: http://localhost/service-desk/index.php?login=success');
+    header('Location: http://localhost/service-desk/src/views/home.php');
 } else {
     $_SESSION['autenticado'] = 'NO';
     header('Location: http://localhost/service-desk/index.php?login=erro');
