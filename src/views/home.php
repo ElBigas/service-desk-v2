@@ -30,7 +30,7 @@ include_once '../controllers/auth.php';
     </a>
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a href="logout.php" class="btn btn-danger me-2">SAIR</a>
+            <a href="../controllers/logout.php" class="btn btn-danger me-2">SAIR</a>
         </li>
     </ul>
 </nav>
@@ -70,12 +70,12 @@ include_once '../controllers/auth.php';
                             <div class="row">
                                 <div class="col-6 d-flex justify-content-center">
                                     <a href="?page=abrir-chamado">
-                                        <img src="formulario_abrir_chamado.png" width="70" height="70">
+                                        <img src="../public/img/formulario_abrir_chamado.png" width="70" height="70">
                                     </a>
                                 </div>
                                 <div class="col-6 d-flex justify-content-center">
                                     <a href="?page=consultar-chamado">
-                                        <img src="formulario_consultar_chamado.png" width="70" height="70">
+                                        <img src="../public/img/formulario_consultar_chamado.png" width="70" height="70">
                                     </a>
                                 </div>
                             </div>

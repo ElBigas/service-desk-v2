@@ -25,12 +25,14 @@ $row = $res->fetch_object();
 $qtd = $res->num_rows;
 
 if ($qtd > 0) {
+
     // Inicia a sessão, guarda os dados do usuário e autentifica o usuário
     $_SESSION["email"] = $email;
     $_SESSION["nome"] = $row->nome;
     $_SESSION['autenticado'] = 'YES';
     header('Location: http://localhost/service-desk/src/views/home.php');
 } else {
+
     $_SESSION['autenticado'] = 'NO';
     header('Location: http://localhost/service-desk/index.php?login=erro');
 }
