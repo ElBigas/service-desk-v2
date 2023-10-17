@@ -11,29 +11,34 @@ include('../config/config.php');
 $email = $_POST["email"];
 $senha = $_POST["senha"];
 
-// Consulta SQL para buscar o usuário no banco de dados
-$sql = sprintf("SELECT * FROM usuarios 
-        WHERE email = '%s'
-        AND senha = '%s' ", $email, $senha);
+// Consulta preparada
+$sql = "SELECT * FROM usuarios 
+        WHERE email = ? 
+        AND senha = ?";
 
-// Executa a consulta SQL
-$res = $conn->query($sql) or die($conn->error);
+$stmt = $conn->prepare($sql);
 
-// Verifica se o usuário foi encontrado
-$row = $res->fetch_object();
+$stmt->bind_param(
+    'ss', // 'ss' indica que ambos os parâmetros são strings
+    $email,
+    $senha
+);
 
-$qtd = $res->num_rows;
+// Executar a consulta
+$stmt->execute();
 
-if ($qtd > 0) {
+// Obter os resultados
+$resultado = $stmt->get_result();
 
+if ($resultado->num_rows == 1) {
     // Inicia a sessão, guarda os dados do usuário e autentifica o usuário
-    $_SESSION["email"] = $email;
-    $_SESSION["nome"] = $row->nome;
+    $row = $resultado->fetch_assoc();
+    $_SESSION["email"] = $row['email'];
+    $_SESSION["nome"] = $row['nome'];
     $_SESSION['autenticado'] = 'YES';
     header('Location: http://localhost/service-desk/src/views/home.php');
-} else {
 
+} else {
     $_SESSION['autenticado'] = 'NO';
     header('Location: http://localhost/service-desk/index.php?login=erro');
 }
-
