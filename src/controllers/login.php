@@ -19,7 +19,7 @@ $sql = "SELECT * FROM usuarios
 $stmt = $conn->prepare($sql);
 
 $stmt->bind_param(
-    'ss', // 'ss' indica que ambos os parâmetros são strings
+    'ss', // 'ss' indica que os parâmetros são 'strings'
     $email,
     $senha
 );
