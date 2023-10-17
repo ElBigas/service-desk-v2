@@ -24,10 +24,10 @@ $stmt->bind_param(
     $senha
 );
 
-// Executar a consulta
+// Executa a consulta
 $stmt->execute();
 
-// Obter os resultados
+// Obtem os resultados
 $resultado = $stmt->get_result();
 
 if ($resultado->num_rows == 1) {
