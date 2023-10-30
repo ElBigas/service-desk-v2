@@ -12,9 +12,7 @@ $email = $_POST["email"];
 $senha = $_POST["senha"];
 
 // Consulta preparada
-$sql = "SELECT * FROM usuarios 
-        WHERE email = ? 
-        AND senha = ?";
+$sql = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
 
 $stmt = $conn->prepare($sql);
 
@@ -40,5 +38,6 @@ if ($resultado->num_rows == 1) {
 
 } else {
     $_SESSION['autenticado'] = 'NO';
-    header('Location: http://localhost/service-desk/index.php?login=erro');
+    $_SESSION['login_erro'] = 'Email ou senha incorretos.';
+    header('Location: http://localhost/service-desk/index.php');
 }
