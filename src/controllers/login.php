@@ -39,6 +39,6 @@ if ($resultado->num_rows == 1) {
     header('Location: http://localhost/service-desk/src/views/home.php');
 
 } else {
-    $_SESSION['autenticado'] = 'NO';
-    header('Location: http://localhost/service-desk/index.php?login=erro');
+    $_SESSION['login_erro'] = 'Email ou senha incorretos.';
+    header('Location: http://localhost/service-desk/index.php');
 }

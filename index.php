@@ -1,3 +1,7 @@
+<?php
+session_start(); // Inicia a sessão
+?>
+
 <html lang="pt-br" data-bs-theme="light">
 
 <head>
@@ -46,23 +50,15 @@
 
 </main>
 
-<?php
-if (isset($_GET['login']) && ($_GET['login']) == 'erro') {
-    ?>
-    <div style="text-align: center; position: fixed; top: 1rem; right: 1rem;" class="alert alert-danger mb-3">
-        Usuário ou senhas inválidos
-    </div>
-    <?php
-}
-?>
 
 <?php
-if (isset($_GET['login']) && ($_GET['login']) == 'erro2') {
-    ?>
-    <div style="text-align: center; position: fixed; top: 1rem; right: 1rem;" class="alert alert-danger mb-3">
-        Faça login para acessar
-    </div>
-    <?php
+// Verificar se há uma mensagem de erro definida na sessão
+if (isset($_SESSION['login_erro'])) {
+    echo
+        '<div style="text-align: center; position: fixed; top: 1rem; right: 1rem;" class="alert alert-danger mb-3">
+            ' . $_SESSION['login_erro'] . '
+        </div>';
+    unset($_SESSION['login_erro']); // Limpar a variável de sessão de erro
 }
 ?>
 
