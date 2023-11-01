@@ -1,7 +1,5 @@
 <?php
 session_start(); // Inicia a sessão
-
-$_SESSION['autenticado'];
 ?>
 
 <html lang="pt-br" data-bs-theme="light">
@@ -52,15 +50,15 @@ $_SESSION['autenticado'];
 
 </main>
 
+
 <?php
 // Verificar se há uma mensagem de erro definida na sessão
 if (isset($_SESSION['login_erro'])) {
-    ?>
-    <div style="text-align: center; position: fixed; top: 1rem; right: 1rem;" class="alert alert-danger mb-3">
-        Email ou senha incorretos.
-    </div>
-    <?php
-    unset($_SESSION['login_erro']); // Limpa a variável de sessão de erro
+    echo
+        '<div style="text-align: center; position: fixed; top: 1rem; right: 1rem;" class="alert alert-danger mb-3">
+            ' . $_SESSION['login_erro'] . '
+        </div>';
+    unset($_SESSION['login_erro']); // Limpar a variável de sessão de erro
 }
 ?>
 
