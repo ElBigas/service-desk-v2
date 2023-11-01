@@ -41,3 +41,4 @@ if ($resultado->num_rows == 1) {
     $_SESSION['login_erro'] = 'Email ou senha incorretos.';
     header('Location: http://localhost/service-desk/index.php');
 }
+
